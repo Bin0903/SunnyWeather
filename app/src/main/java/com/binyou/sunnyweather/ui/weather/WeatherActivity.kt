@@ -40,22 +40,22 @@ class WeatherActivity : AppCompatActivity() {
         window.statusBarColor = Color.TRANSPARENT
         setContentView(R.layout.activity_weather)
 
-//        navBtn.setOnClickListener {
-//            drawerLayout.openDrawer(GravityCompat.START)
-//        }
-//        drawerLayout.addDrawerListener(object : DrawerLayout.DrawerListener {
-//            override fun onDrawerStateChanged(newState: Int) {}
-//
-//            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {}
-//
-//            override fun onDrawerOpened(drawerView: View) {}
-//
-//            override fun onDrawerClosed(drawerView: View) {
-//                val manager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//                manager.hideSoftInputFromWindow(drawerView.windowToken,
-//                InputMethodManager.HIDE_NOT_ALWAYS)
-//            }
-//        })
+        navBtn.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
+        drawerLayout.addDrawerListener(object : DrawerLayout.DrawerListener {
+            override fun onDrawerStateChanged(newState: Int) {}
+
+            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {}
+
+            override fun onDrawerOpened(drawerView: View) {}
+
+            override fun onDrawerClosed(drawerView: View) {
+                val manager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                manager.hideSoftInputFromWindow(drawerView.windowToken,
+                InputMethodManager.HIDE_NOT_ALWAYS)
+            }
+        })
 
         if (viewModel.locationLng.isEmpty()) {
             viewModel.locationLng = intent.getStringExtra("location_lng") ?: ""
@@ -84,18 +84,18 @@ class WeatherActivity : AppCompatActivity() {
         viewModel.refreshWeather(viewModel.locationLng, viewModel.locationLat)
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-
-        viewModel.placeName = ""
-        viewModel.locationLng = ""
-        viewModel.locationLat = ""
-        viewModel.clearSavedPlace()
-
-        intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        this.finish()
-    }
+//    override fun onBackPressed() {
+//        super.onBackPressed()
+//
+//        viewModel.placeName = ""
+//        viewModel.locationLng = ""
+//        viewModel.locationLat = ""
+//        viewModel.clearSavedPlace()
+//
+//        intent = Intent(this, MainActivity::class.java)
+//        startActivity(intent)
+//        this.finish()
+//    }
 
     fun refreshWeather() {
         viewModel.refreshWeather(viewModel.locationLng, viewModel.locationLat)
