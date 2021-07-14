@@ -66,5 +66,7 @@ object Repository {
 
     fun getPlace() = PlaceDao.getSavedPlace()
 
+    fun clearPlace() = PlaceDao.clearSavedPlace()
+
     fun isPlaceSaved() = PlaceDao.isPlaceSaved()
 }

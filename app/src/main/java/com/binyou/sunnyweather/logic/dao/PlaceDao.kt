@@ -18,6 +18,13 @@ object PlaceDao {
         return Gson().fromJson(placeJson, Place::class.java)
     }
 
+    fun clearSavedPlace() {
+        sharedPreferences().edit() {
+            clear()
+            commit()
+        }
+    }
+
     fun isPlaceSaved() = sharedPreferences().contains("place")
 
     private fun sharedPreferences() = SunnyWeatherApplication.context.
