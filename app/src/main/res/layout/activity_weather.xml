@@ -34,7 +34,7 @@
             </LinearLayout>
 
         </ScrollView>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>0
 
     <FrameLayout
         android:layout_width="match_parent"
